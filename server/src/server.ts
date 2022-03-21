@@ -1,8 +1,7 @@
 import cors from 'cors';
 import express, { json, Router } from 'express';
-import https from 'https';
+import http from 'http';
 import path from 'path';
-import fs from 'fs';
 
 import Logger from './infrastructure/logger';
 import DbConnection from './infrastructure/dbConnection';
@@ -75,7 +74,9 @@ class Server {
     private _logger: Logger;
     private _running: boolean;
     private _options: ServerOptions;
-    private _server: https.Server;
+    // TODO: use this for https
+    // private _server: https.Server;
+    private _server: http.Server;
 
     public constructor(
         dbConnection: DbConnection,
@@ -94,13 +95,15 @@ class Server {
             serverOptions.welcomeMessage
         );
 
-        this._server = https.createServer(
-            {
-                key: fs.readFileSync(this._options.key),
-                cert: fs.readFileSync(this._options.cert),
-            },
-            this._express
-        );
+        // TODO: use this for https
+        // this._server = https.createServer(
+        //     {
+        //         key: fs.readFileSync(this._options.key),
+        //         cert: fs.readFileSync(this._options.cert),
+        //     },
+        //     this._express
+        // );
+        this._server = http.createServer(this._express);
     }
 
     public async start() {

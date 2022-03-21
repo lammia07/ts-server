@@ -8,7 +8,7 @@ const router = decorateRouter(express.Router());
 const authService = new AuthenticationService();
 
 // POST /token ->  route for refreshing the access token
-router.postAsync('/token', (req, res) => {
+router.post('/token', (req, res) => {
     const { token } = req.body as { token: string };
     const authResult = authService.refreshToken(token);
     res.json(authResult);
@@ -29,7 +29,7 @@ export const authorizationHandler: RequestHandler = (req, res, next) => {
 };
 
 // GET /secure -> route for testing if authorized
-router.getAsync('/secure', authorizationHandler, async (req, res) => {
+router.get('/secure', authorizationHandler, async (req, res) => {
     res.send('You are authorized');
 });
 
