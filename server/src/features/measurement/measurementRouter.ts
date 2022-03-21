@@ -6,7 +6,50 @@ import { BadRequestError, NotFoundError } from '../../infrastructure/errors';
 const router = decorateRouter(express.Router());
 const measurementService = new MeasurementService();
 
+/**
+ * @openapi
+ * definitions:
+ *   DummyV1:
+ *     required:
+ *       - identifier
+ *       - identifierType
+ *       - name
+ *       - description
+ *     properties:
+ *       identifier:
+ *         type: string
+ *       identifierType:
+ *         type: string
+ *         enum:
+ *           - ean13
+ *           - custom
+ *       name:
+ *         type: string
+ *       description:
+ *         type: string
+ */
+
 // GET /api/measurements -> Get all measurements
+/**
+ * @openapi
+ * /api/measurements:
+ *   get:
+ *     tags:
+ *       - Dummy V1
+ *     produces:
+ *       - application/json
+ *     description: This is a dummy entry.
+ *     summary: Read dummy entries.
+ *     responses:
+ *       200:
+ *         description: A list of articles.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/definitions/DummyV1'
+ */
 router.getAsync('/', async (req: express.Request, res: express.Response) => {
     let measurements = await measurementService.get();
     res.send(measurements);

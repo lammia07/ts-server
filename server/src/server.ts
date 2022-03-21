@@ -121,7 +121,9 @@ class Server {
             this._logger.info(
                 `Express server listening on port ${this._options.port}`
             );
-            this._logger.info(`https://localhost:${this._options.port}`);
+            // TODO: use this for https
+            // this._logger.info(`https://localhost:${this._options.port}`);
+            this._logger.info(`http://localhost:${this._options.port}`);
         });
 
         this._server.on('connection', (socket) => {
