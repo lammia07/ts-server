@@ -1,0 +1,28 @@
+{
+    "authOptions": {
+        "accessTokenSecret": "youraccesstokensecret",
+        "refreshTokenSecret": "yourrefreshtokensecret",
+        "saltRounds": 10
+    },
+    "MySqlConnectionPool": {
+        "connectionLimit": 5,
+        "host": "hostname.com",
+        "user": "username",
+        "password": "pw",
+        "database": "db"
+    },
+    "defaultUsers": [
+        { "id": 1, "user": "admin", "password": "password", "role": "admin" },
+        { "id": 2, "user": "user", "password": "password", "role": "user" }
+    ],
+    "testUser": {
+        "username": "user",
+        "password": "password"
+    },
+    "server": {
+        "cert": "Path to certificate",
+        "key": "Path to keyfile",
+        "port": 3001,
+        "welcomeMessage": "Welcome"
+    }
+}

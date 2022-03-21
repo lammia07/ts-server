@@ -1,0 +1,15 @@
+#IDE
+.vscode
+
+node_modules
+
+# temporary files
+build
+tmp
+
+#test files
+**/coverage
+
+# config
+**/config/*.json
+!**/config/*TEMPLATE*.json
