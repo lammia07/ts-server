@@ -6,6 +6,7 @@ import swaggerJSDoc from 'swagger-jsdoc';
 import authRouter, {
     authorizationHandler,
 } from './features/auth/authenticationRouter';
+import articleRouter from './features/articles/articleRouter';
 import measurementRouter from './features/measurement/measurementRouter';
 
 const options: swaggerJSDoc.OAS3Options = {
@@ -27,6 +28,7 @@ const router = decorateRouter(express.Router());
 
 router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(spec));
 
+router.use('/api/articles', authorizationHandler, articleRouter);
 router.use('/api/measurements', authorizationHandler, measurementRouter);
 router.use('/', authRouter);
 
