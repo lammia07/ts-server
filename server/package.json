@@ -1,33 +1,27 @@
 {
-    "name": "monitoring-server",
+    "name": "ts-server",
     "version": "0.1.0",
-    "description": "Server implementation of the webservice project 'monitoring-system' for handling weather data.",
+    "description": "Template Project for a typescript server",
     "main": "src/index.js",
     "scripts": {
         "start": "nodemon ./src/main.ts",
-        "test": "jest --coverage",
-        "generateUsers": "node ./db_scripts/generateUsers.js"
+        "test": "jest --coverage"
     },
     "repository": {
         "type": "git",
-        "url": "https://git-iit.fh-joanneum.at/snickers-vs-mars/monitoring/webservice-monitoring-system"
+        "url": "https://github.com/lammia07/ts-server"
     },
     "keywords": [],
     "contributors": [
         {
-            "name": "Martin Guevara-Kunerth",
-            "email": "martin.guevara-kunerth@edu.fh-joanneum.at",
-            "url": "https://github.com/martin-gk"
+            "name": "Marian Korosec",
+            "email": "m4rien0.dev@gmail.com",
+            "url": "https://github.com/m4rien0"
         },
         {
             "name": "Michael Lamprecht",
-            "email": "michael.lamrecht@edu.fh-joanneum.at",
+            "email": "lammia07@gmail.com",
             "url": "https://github.com/lammia07"
-        },
-        {
-            "name": "Samuel Angerer",
-            "email": "samuel.angerer@edu.fh-joanneum.at",
-            "url": "https://github.com/SamBrix"
         }
     ],
     "license": "ISC",
